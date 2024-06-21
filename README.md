@@ -16,10 +16,15 @@ Herramienta para el analisis electrico de una aeronave de clase Micro. Se preten
 5. [Contacto]
 
 ## Introduccion
+La presente herramienta pretende cubrir los aspectos del proyecto electrico involucrado en una aeronave participe de la SAE Aerodesign Mexico en la categoria Micro. Se cubren los aspectos teoricos y son automatizados para facilitar el proceso de la seleccion de: propela-motor, servomotores y bateria. A la vez, se profundiza en el sistema de radiofrecuencia involucrado para analizar aspectos no cubiertos o no vistos anteriormente.
 
 ## Caracteristicas
 a. **Analisis de propela**  
-b. **Analisis de motor**
+El analisis radica en calcular parametros como: empuje, torque, potencia, resistencia etc. Tales parametros son calculados bajo los siguientes metodos: teoria del momento de Froude-Rankine, teoria del elemento de pala y la teoria del vortice de propela, proveniente de la teoria de la linea sustentadora de Prandtl. [1]
+
+b. **Analisis de motor**  
 ## Uso
 ## Contribuciones
+## Referencias
+[1] Gudmundsson, S. (2013). General aviation aircraft design: Applied Methods and Procedures. Butterworth-Heinemann. (pp. 583)
 ## Contacto
