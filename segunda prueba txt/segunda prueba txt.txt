@@ -1,2 +1,0 @@
-Tutorial git fork
-https://medium.com/@yixunxing/fork-gui-tutorial-a9dd3c7ee946
