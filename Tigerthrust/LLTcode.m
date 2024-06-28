@@ -4,7 +4,7 @@
 % on an unswept wing of any taper ratio.
 % It assumes that the wing is not maneuvering, i.e., there are no aileron
 % deflections, and so only odd terms on the sine series are used to create a
-% symmetric lift distribution.
+% symmetric lift distribution.bv
 %
 % Inputs:
 %         a0      = Sectional lift curve slope per radians ( normally 2*pi )
@@ -28,7 +28,7 @@
 % Created by: Joseph Derlaga, 10/16/09
 %Prueba extra
 
-a0= 2*pi
+a0= 2*pi;
 AR= 9;
 lambda= 0.4;
 alpha0l= -1.2;
@@ -53,42 +53,40 @@ Cl  = zeros(numlocs,1);
 for n = 1:numlocs
     phi2(n) = n*pi/(2*numlocs);
 end
-
 % Could vectorize the above lines
 
 %% Create the system of equations for solving LLT/Monoplane Equation
 for a = 1:numlocs
     
-    mu = (a0 / ( 2 * AR * ( 1 + lambda ) )) * (1 + ( lambda - 1 )*cos(phi2(a)))
-    RHS(a,1) = mu * ( alphar - alpha0lr ) * sin(phi2(a))
+    mu = (a0 / ( 2 * AR * ( 1 + lambda ) )) * (1 + ( lambda - 1 )*cos(phi2(a)));
+    RHS(a,1) = mu * ( alphar - alpha0lr ) * sin(phi2(a));
 
     for n = 1:2:2*numlocs-1
-        LHS(a,(n+1)/2) = sin(n*phi2(a)) * ( n*mu + sin(phi2(a)) )
+        LHS(a,(n+1)/2) = sin(n*phi2(a)) * ( n*mu + sin(phi2(a)) );
     end
     
 end
 % Could vectorize some of the above lines
 
 %% Solve
-As = LHS\RHS
+As = LHS\RHS;
 
 %% Extract quantities of interest
-CL = A(1)*pi*AR
+CL = As(1)*pi*AR
 
 for n = 1:numlocs
     Asum = 0;
     for m = 1:numlocs
-        Asum = Asum + A(m) * sin( (2*m-1) * phi2(n) )
+        Asum = Asum + As(m) * sin( (2*m-1) * phi2(n) );
     end
     % Could replace the above for loop with:
     %Asum = sum(A(1:numlocs).*sin(2*(1:numlocs)-1)'*phi(n));
-    Cl(n) = 2 * AR *( 1 + lambda ) * ...
-        (1 / ( 1 + ( lambda - 1 ) * cos(phi2(n)) )) * Asum
+    Cl(n) = 2 * AR *( 1 + lambda ) * (1 / ( 1 + ( lambda - 1 ) * cos(phi2(n)) )) * Asum;
 end
 
 einv = 0;
 for n = 1:numlocs
-    einv = einv + (2*n-1)*A(n)^2/A(1)^2;
+    einv = einv + (2*n-1)*As(n)^2/As(1)^2;
 end
 % Could replace the above for loop with:
 %einv = sum( (2*(1:numlocs)-1)*A(1:numlocs).^2/A(1)^2 );
@@ -96,3 +94,5 @@ end
 CDi = einv*CL^2/(pi*AR)
 
 e = 1/einv
+phi2= rad2deg(phi2)
+plot(phi2,Cl)
