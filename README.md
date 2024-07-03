@@ -1,5 +1,5 @@
 # Proyecto electrico - SAE Aerodesign
-Herramienta para el analisis electrico de una aeronave de clase Micro. Se pretende cubrir los siguientes aspectos: seleccion de propela-motor, seleccion de servomotores, seleccion de radio-frecuencia, seleccion de bateria y consumo de energia y miscelaneos (sensores para analisis de performance).
+Herramienta para el analisis de proyecto electrico de una aeronave de clase Micro. Se pretende cubrir los siguientes aspectos: seleccion de propela-motor, seleccion de servomotores, seleccion de radio-frecuencia, seleccion de bateria y consumo de energia y miscelaneos (sensores para analisis de performance).
 
 ## Indice
 1. [Introduccion]
@@ -16,13 +16,18 @@ Herramienta para el analisis electrico de una aeronave de clase Micro. Se preten
 5. [Contacto]
 
 ## Introduccion
-La presente herramienta pretende cubrir los aspectos del proyecto electrico involucrado en una aeronave participe de la SAE Aerodesign Mexico en la categoria Micro. Se cubren los aspectos teoricos y son automatizados para facilitar el proceso de la seleccion de: propela-motor, servomotores y bateria. A la vez, se profundiza en el sistema de radiofrecuencia involucrado para analizar aspectos no cubiertos o no vistos anteriormente.
+La presente herramienta pretende cubrir los aspectos del proyecto electrico involucrado en una aeronave participe de la SAE Aerodesign Mexico en la categoria Micro. Se cubren los aspectos teoricos y son automatizados para facilitar el proceso de la seleccion de: propela-motor, servomotores y bateria. A la vez, se investigan los aspectos de radiofrecuencia involucrados para analizar aspectos no cubiertos o no vistos anteriormente.
 
 ## Caracteristicas
 a. **Analisis de propela**  
 El analisis radica en calcular parametros como: empuje, torque, potencia, resistencia etc. Tales parametros son calculados bajo los siguientes metodos: teoria del momento de Froude-Rankine, teoria del elemento de pala y la teoria del vortice de propela, proveniente de la teoria de la linea sustentadora de Prandtl. [1]
 
 b. **Analisis de motor**  
+c. **Unificacion de propela-motor**  
+d. **Seleccion de servomotores**  
+e. **Aspectos de radiofrecuencia**  
+f. **Consumo de energia y seleccion de bateria**
+g. **Sensores para analisis de performance**
 ## Uso
 ## Contribuciones
 ## Referencias
