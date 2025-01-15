@@ -1,4 +1,4 @@
-function [LiftTotalWing, LiftTotal_right, LiftTotal_left] = aerodynamicWingModel(aleronDeflection)
+function [LiftTotalWing, LiftTotal_right, LiftTotal_left, DragTotalWing, DragTotal_right, DragTotal_left] = aerodynamicWingModel(aleronDeflection)
 % --- Modelo aerodinamico de ala ---
 % max deflexion of aleron 25deg
 % --- Declaration of aerodynamic parameters ---
@@ -99,6 +99,7 @@ LiftTotal_left = sum(L_local_left);
 DragTotal_right = sum(D_induced_right) + sum(D_friction) + sum(D_pressure);
 DragTotal_left = D_induced_left + sum(D_friction) + sum(D_pressure);
 LiftTotalWing = LiftTotal_left + LiftTotal_right;
+DragTotalWing = DragTotal_right + DragTotal_left;
 
 % Compute center positions of lift and drag
 x_right = linspace(0, spanWing / 2, Segments);  % Position along right wing
