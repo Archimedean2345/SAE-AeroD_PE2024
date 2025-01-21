@@ -51,5 +51,6 @@ newchord= sqrt(b^2 + paleron^2 - 2*b*paleron*cos(AngACD));
 AngCAD= asin(sin(AngACD)*paleron/newchord);
 AngBAD= AngBAC + AngCAD;
 camberAleron= p1*sin(AngBAD);
+camberAleron= camberAleron*(camberPorcentage/100)/(chord*camberPorcentage/100);
 
 end
