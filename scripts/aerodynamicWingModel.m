@@ -1,4 +1,4 @@
-function [LiftTotalWing, LiftTotal_right, LiftTotal_left, DragTotalWing, DragTotal_right, DragTotal_left] = aerodynamicWingModel(aleronDeflection)
+function [LiftTotalWing, LiftTotal_right, LiftTotal_left,DragTotalWing, DragTotal_right, DragTotal_left] = aerodynamicWingModel(aleronDeflection)
 % --- Modelo aerodinamico de ala ---
 % max deflexion of aleron 25deg
 % --- Declaration of aerodynamic parameters ---
@@ -30,7 +30,7 @@ L_local = zeros(1, Segments);
 
 % --- General Angle of Attack for all segments ---
 AoAGeneral = atan(Velocity_w / Velocity_u) * ones(1, Segments);
-AoAGeneral= deg2rad(2)* ones(1, Segments);
+AoAGeneral= deg2rad(2)* ones(1, Segments);  % Manually indicated angle of attack
 
 % --- Calculation of Lift and Drag Coefficients for each segment ---
 for i = 1:Segments
@@ -59,7 +59,7 @@ end
 % --- Lift Coefficient Modification Due to Aileron Deflection ---
 [camberAleron, AleronWingInitialLocationPorcentage, AleronWingLastLocationPorcentage] = controlSurfacesModelwing(aleronDeflection);
 ZeroLiftAngleRight= -2 *camberAleron;
-[camberAleron1] = controlSurfacesModel(-aleronDeflection);
+[camberAleron1] = controlSurfacesModelwing(-aleronDeflection);
 ZeroLiftAngleLeft= -2 *camberAleron1;
 AleronWingInitialSegment = round(Segments *AleronWingInitialLocationPorcentage /100);
 AleronWingLastSegment = round(Segments *AleronWingLastLocationPorcentage /100);
