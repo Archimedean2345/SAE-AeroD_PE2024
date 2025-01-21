@@ -97,7 +97,7 @@ L_local_left = 0.5 * rho * Velocity_u^2 .* SurfaceLocal .* Cl_local_left;
 LiftTotal_right = sum(L_local_right);
 LiftTotal_left = sum(L_local_left);
 DragTotal_right = sum(D_induced_right) + sum(D_friction) + sum(D_pressure);
-DragTotal_left = D_induced_left + sum(D_friction) + sum(D_pressure);
+DragTotal_left = sum(D_induced_left) + sum(D_friction) + sum(D_pressure);
 LiftTotalWing = LiftTotal_left + LiftTotal_right;
 DragTotalWing = DragTotal_right + DragTotal_left;
 
